@@ -15,10 +15,10 @@ spring:
 aliyun:
   oss:
     file:
-      endpoint: oss-cn-shenzhen.aliyuncs.com
-      keyid: LTAI5tJisZsULx9HgM8BoSBx
-      keysecret: sY7FlYXkufdpGFruYyGYRijP8BdsyL
-      bucketname: edu-shenzhen # buckey可以在控制台创建也可以代码创建
+      endpoint: xxx
+      keyid: xxx
+      keysecret: xxx
+      bucketname: xxx # buckey可以在控制台创建也可以代码创建
 
 management:
   health:

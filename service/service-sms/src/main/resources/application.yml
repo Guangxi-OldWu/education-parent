@@ -23,9 +23,9 @@
 #        include: '*'
 #
 #sms-config:
-#  secretId: AKIDmLnysVrxmJZZHislOkqfDUUEhsmOkqeB
-#  secretKey: GG0UgcHfmdCUVFiupSpvkKdgRv86mBJB
-#  sdkAppId: '1400569767'
-#  signName: 奋斗小吴
-#  templateId: '1108047'
+#  secretId: xxxx
+#  secretKey: xxxx
+#  sdkAppId: 'xxxx'
+#  signName: xxxx
+#  templateId: 'xxxx'
 #

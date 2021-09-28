@@ -18,8 +18,8 @@ spring:
 aliyun:
   vod:
     file:
-      keyId: LTAI5tJisZsULx9HgM8BoSBx
-      keySecret: sY7FlYXkufdpGFruYyGYRijP8BdsyL
+      keyId: xxxx
+      keySecret: xxxx
 
 management:
   health:
