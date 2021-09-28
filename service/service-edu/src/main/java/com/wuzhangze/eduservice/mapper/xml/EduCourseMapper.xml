@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuzhangze.eduservice.mapper.EduCourseMapper">
+
+    <select id="selectCoursePublish" resultType="coursePublishVo" >
+        select a.id,a.title,a.price,a.lesson_num,a.cover,
+		       b.description,
+			   e.name,
+			   f.title as one_subject,
+			   g.title as two_subject
+        from edu_course as a left join edu_course_description as b on a.id = b.id
+							 inner join edu_teacher as e on a.teacher_id = e.id
+							 left join edu_subject as f on a.subject_parent_id = f.id
+							 left join edu_subject as g on a.subject_id = g.id
+
+		where a.id = #{id}
+    </select>
+
+	<select id="selectCourseByTeacherId" resultType="com.wuzhangze.eduservice.entity.vo.CourseCoverVo">
+		select a.id,a.cover,a.title
+		from edu_course a inner join edu_teacher b on a.teacher_id = b.id
+		where a.teacher_id = #{teacherId} and a.status = 'Normal'
+	</select>
+
+	<select id="selectCourseFrontVoInfo" resultType="com.wuzhangze.eduservice.entity.vo.CourseFrontVo">
+		select a.id,a.title,a.price,a.lesson_num,a.cover,a.buy_count,a.view_count,
+					 b.description,
+					 c.id teacher_id,c.name teacher_name,c.intro,c.avatar,
+					 d.id subject_level_one_id,d.title subject_level_one,
+					 e.id subject_level_two_id,e.title subject_level_two
+		from edu_course as a,edu_course_description as b,edu_teacher as c,edu_subject as d,edu_subject as e
+		where a.teacher_id = c.id and a.id = b.id and a.subject_parent_id = d.id and a.subject_id = e.id
+
+		and a.id = #{courseId}
+	</select>
+</mapper>

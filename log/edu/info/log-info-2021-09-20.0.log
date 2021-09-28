@@ -1,0 +1,101 @@
+2021-09-20 00:20:51.960 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-09-20 00:20:51.961 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - [LISTENER] removing DEFAULT_GROUP@@service-edu with DEFAULT from listener map
+2021-09-20 00:20:51.962 [SpringContextShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2021-09-20 00:20:51.962 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - [BEAT] removing beat: DEFAULT_GROUP@@service-edu:192.168.163.1:8001 from beat map.
+2021-09-20 00:20:51.962 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@service-edu with instance: Instance{instanceId='null', ip='192.168.163.1', port=8001, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2021-09-20 00:20:52.004 [SpringContextShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2021-09-20 00:20:52.004 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.beat.BeatReactor do shutdown begin
+2021-09-20 00:20:52.647 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.beat.BeatReactor do shutdown stop
+2021-09-20 00:20:52.648 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.EventDispatcher do shutdown begin
+2021-09-20 00:20:52.946 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - removed ips(1) service: DEFAULT_GROUP@@service-edu@@DEFAULT -> [{"instanceId":"192.168.163.1#8001#DEFAULT#DEFAULT_GROUP@@service-edu","ip":"192.168.163.1","port":8001,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@service-edu","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2021-09-20 00:20:52.977 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(0) service: DEFAULT_GROUP@@service-edu@@DEFAULT -> []
+2021-09-20 00:20:55.651 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.EventDispatcher do shutdown stop
+2021-09-20 00:20:55.651 [SpringContextShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.HostReactor do shutdown begin
+2021-09-20 11:37:22.764 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-20 11:37:24.633 [restartedMain] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\86182\nacos\config
+2021-09-20 11:37:24.669 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.Limiter - limitTime:5.0
+2021-09-20 11:37:24.804 [restartedMain] INFO  com.alibaba.nacos.client.config.utils.JvmUtil - isMultiInstance:false
+2021-09-20 11:37:24.813 [restartedMain] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-nacos-config-client-dev.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-nacos-config-client.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-nacos-config-client,DEFAULT_GROUP'}]
+2021-09-20 11:37:24.817 [restartedMain] INFO  com.wuzhangze.eduservice.EduApplication - The following profiles are active: dev
+2021-09-20 11:37:26.029 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-09-20 11:37:26.031 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-09-20 11:37:26.057 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+2021-09-20 11:37:26.302 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=a7306f5e-1fa8-3ef4-836c-d2a4b7fd28f3
+2021-09-20 11:37:26.346 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.wuzhangze.eduservice.client.MemberClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-20 11:37:26.346 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.wuzhangze.eduservice.client.OrderClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-20 11:37:26.347 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.wuzhangze.eduservice.client.VodClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-20 11:37:26.636 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.wuzhangze.servicebase.RedisConfig$$EnhancerBySpringCGLIB$$62ba96bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-20 11:37:26.761 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.cloud.sentinel-com.alibaba.cloud.sentinel.SentinelProperties' of type [com.alibaba.cloud.sentinel.SentinelProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-20 11:37:26.824 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration' of type [com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-09-20 11:37:27.268 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8001 (http)
+2021-09-20 11:37:27.277 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+2021-09-20 11:37:27.278 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-09-20 11:37:27.278 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2021-09-20 11:37:27.452 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-09-20 11:37:27.452 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2610 ms
+2021-09-20 11:37:29.596 [restartedMain] INFO  c.a.cloud.sentinel.SentinelWebAutoConfiguration - [Sentinel Starter] register SentinelWebInterceptor with urlPatterns: [/**].
+2021-09-20 11:37:31.280 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils - Cannot determine local hostname
+2021-09-20 11:37:31.285 [restartedMain] INFO  com.alibaba.nacos.client.naming - initializer namespace from System Property :null
+2021-09-20 11:37:31.286 [restartedMain] INFO  com.alibaba.nacos.client.naming - initializer namespace from System Environment :null
+2021-09-20 11:37:31.286 [restartedMain] INFO  com.alibaba.nacos.client.naming - initializer namespace from System Property :null
+2021-09-20 11:37:31.411 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 20 endpoint(s) beneath base path '/actuator'
+2021-09-20 11:37:31.538 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-09-20 11:37:31.559 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-09-20 11:37:31.563 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-09-20 11:37:31.754 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-20 11:37:31.877 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'Nacos-Watch-Task-Scheduler'
+2021-09-20 11:37:33.556 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils - Cannot determine local hostname
+2021-09-20 11:37:33.899 [restartedMain] INFO  com.alibaba.nacos.client.naming - [LISTENER] adding DEFAULT_GROUP@@service-edu with DEFAULT to listener map
+2021-09-20 11:37:33.902 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+2021-09-20 11:37:33.923 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8001 (http) with context path ''
+2021-09-20 11:37:33.927 [restartedMain] INFO  com.alibaba.nacos.client.naming - [BEAT] adding beat: BeatInfo{port=8001, ip='192.168.163.1', weight=1.0, serviceName='DEFAULT_GROUP@@service-edu', cluster='DEFAULT', metadata={preserved.register.source=SPRING_CLOUD}, scheduled=false, period=5000, stopped=false} to beat map.
+2021-09-20 11:37:33.928 [restartedMain] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@service-edu with instance: Instance{instanceId='null', ip='192.168.163.1', port=8001, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD}}
+2021-09-20 11:37:33.955 [restartedMain] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP service-edu 192.168.163.1:8001 register finished
+2021-09-20 11:37:34.953 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - new ips(1) service: DEFAULT_GROUP@@service-edu@@DEFAULT -> [{"instanceId":"192.168.163.1#8001#DEFAULT#DEFAULT_GROUP@@service-edu","ip":"192.168.163.1","port":8001,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@service-edu","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2021-09-20 11:37:34.979 [com.alibaba.nacos.client.naming.updater] INFO  com.alibaba.nacos.client.naming - current ips:(1) service: DEFAULT_GROUP@@service-edu@@DEFAULT -> [{"instanceId":"192.168.163.1#8001#DEFAULT#DEFAULT_GROUP@@service-edu","ip":"192.168.163.1","port":8001,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@service-edu","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2021-09-20 11:37:35.358 [restartedMain] INFO  org.springframework.cloud.commons.util.InetUtils - Cannot determine local hostname
+2021-09-20 11:37:35.358 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-09-20 11:37:35.379 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-09-20 11:37:35.435 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-09-20 11:37:35.574 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getCourseInfoUsingGET_1
+2021-09-20 11:37:35.604 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findAllUsingGET_1
+2021-09-20 11:37:35.634 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_1
+2021-09-20 11:37:35.636 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_2
+2021-09-20 11:37:35.639 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_3
+2021-09-20 11:37:35.640 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingDELETE_1
+2021-09-20 11:37:35.641 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_4
+2021-09-20 11:37:35.643 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_5
+2021-09-20 11:37:35.644 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_6
+2021-09-20 11:37:35.646 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_7
+2021-09-20 11:37:35.647 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_8
+2021-09-20 11:37:35.648 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_9
+2021-09-20 11:37:35.650 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_10
+2021-09-20 11:37:35.652 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_11
+2021-09-20 11:37:35.654 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_12
+2021-09-20 11:37:35.656 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_13
+2021-09-20 11:37:35.659 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_14
+2021-09-20 11:37:35.660 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_15
+2021-09-20 11:37:35.662 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_16
+2021-09-20 11:37:35.663 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_17
+2021-09-20 11:37:35.664 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_18
+2021-09-20 11:37:35.666 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_19
+2021-09-20 11:37:35.668 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingPOST_1
+2021-09-20 11:37:35.669 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_20
+2021-09-20 11:37:35.671 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_21
+2021-09-20 11:37:35.672 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_22
+2021-09-20 11:37:35.673 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingPOST_2
+2021-09-20 11:37:35.675 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_23
+2021-09-20 11:37:35.676 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findAllUsingGET_2
+2021-09-20 11:37:35.679 [restartedMain] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: pageListTeacherUsingGET_1
+2021-09-20 11:37:35.705 [restartedMain] INFO  com.wuzhangze.eduservice.EduApplication - Started EduApplication in 15.164 seconds (JVM running for 16.94)
+2021-09-20 11:37:35.712 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-120.25.72.212_8848] [subscribe] nacos-config-client-dev.yml+DEFAULT_GROUP
+2021-09-20 11:37:35.712 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-120.25.72.212_8848] [add-listener] ok, tenant=, dataId=nacos-config-client-dev.yml, group=DEFAULT_GROUP, cnt=1
+2021-09-20 11:37:35.713 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-120.25.72.212_8848] [subscribe] nacos-config-client.yml+DEFAULT_GROUP
+2021-09-20 11:37:35.713 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-120.25.72.212_8848] [add-listener] ok, tenant=, dataId=nacos-config-client.yml, group=DEFAULT_GROUP, cnt=1
+2021-09-20 11:37:35.713 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-120.25.72.212_8848] [subscribe] nacos-config-client+DEFAULT_GROUP
+2021-09-20 11:37:35.713 [restartedMain] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-120.25.72.212_8848] [add-listener] ok, tenant=, dataId=nacos-config-client, group=DEFAULT_GROUP, cnt=1
+2021-09-20 11:37:36.374 [RMI TCP Connection(9)-169.254.77.176] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-09-20 11:37:36.676 [RMI TCP Connection(11)-169.254.77.176] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-20 11:37:36.677 [RMI TCP Connection(11)-169.254.77.176] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-09-20 11:37:36.686 [RMI TCP Connection(11)-169.254.77.176] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2021-09-20 11:37:36.839 [RMI TCP Connection(9)-169.254.77.176] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

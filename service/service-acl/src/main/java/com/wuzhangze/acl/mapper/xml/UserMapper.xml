@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuzhangze.acl.mapper.UserMapper">
+
+    <select id="selectUserRoleById" resultType="com.wuzhangze.acl.entity.Role">
+        select c.id,c.role_name,c.remark
+        from acl_user_role a inner join acl_user b on a.user_id = b.id
+                             inner join acl_role c on a.role_id = c.id
+        where b.id = #{id} and a.is_deleted = 0
+    </select>
+</mapper>

@@ -1,0 +1,57 @@
+2021-09-25 22:49:34.072 [restartedMain] WARN  com.alibaba.nacos.client.config.NacosConfigService - [fixed-120.25.72.212_8848] [get-config] get from server error, dataId=nacos-config-client, group=DEFAULT_GROUP, tenant=, msg=ErrCode:500, ErrMsg:no available server
+2021-09-25 22:49:34.074 [restartedMain] WARN  com.alibaba.nacos.client.config.NacosConfigService - [fixed-120.25.72.212_8848] [get-config] get snapshot ok, dataId=nacos-config-client, group=DEFAULT_GROUP, tenant=, config=
+2021-09-25 22:49:34.081 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[nacos-config-client] & group[DEFAULT_GROUP]
+2021-09-25 22:49:37.100 [restartedMain] WARN  com.alibaba.nacos.client.config.NacosConfigService - [fixed-120.25.72.212_8848] [get-config] get from server error, dataId=nacos-config-client.yml, group=DEFAULT_GROUP, tenant=, msg=ErrCode:500, ErrMsg:no available server
+2021-09-25 22:49:37.100 [restartedMain] WARN  com.alibaba.nacos.client.config.NacosConfigService - [fixed-120.25.72.212_8848] [get-config] get snapshot ok, dataId=nacos-config-client.yml, group=DEFAULT_GROUP, tenant=, config=
+2021-09-25 22:49:37.100 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[nacos-config-client.yml] & group[DEFAULT_GROUP]
+2021-09-25 22:49:40.131 [restartedMain] WARN  com.alibaba.nacos.client.config.NacosConfigService - [fixed-120.25.72.212_8848] [get-config] get from server error, dataId=nacos-config-client-dev.yml, group=DEFAULT_GROUP, tenant=, msg=ErrCode:500, ErrMsg:no available server
+2021-09-25 22:49:40.131 [restartedMain] WARN  com.alibaba.nacos.client.config.NacosConfigService - [fixed-120.25.72.212_8848] [get-config] get snapshot ok, dataId=nacos-config-client-dev.yml, group=DEFAULT_GROUP, tenant=, config=
+2021-09-25 22:49:41.170 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2021-09-25 22:49:41.173 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2021-09-25 22:49:41.586 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-09-25 22:49:44.139 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2021-09-25 22:49:46.423 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-09-25 22:49:46.427 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-09-25 22:50:06.041 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is java.lang.reflect.UndeclaredThrowableException
+2021-09-25 22:50:07.055 [com.alibaba.nacos.client.naming.updater] WARN  com.alibaba.nacos.client.naming - [NA] failed to update serviceName: DEFAULT_GROUP@@service-edu
+com.alibaba.nacos.api.exception.NacosException: failed to req API:/nacos/v1/ns/instance/list after all servers([http://120.25.72.212:8848]) tried: java.net.ConnectException: Connection refused: connect
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.java:552)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.java:491)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.java:486)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.queryList(NamingProxy.java:400)
+	at com.alibaba.nacos.client.naming.core.HostReactor.updateService(HostReactor.java:339)
+	at com.alibaba.nacos.client.naming.core.HostReactor$UpdateTask.run(HostReactor.java:420)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2021-09-25 22:50:17.789 [com.alibaba.nacos.client.naming.updater] WARN  com.alibaba.nacos.client.naming - [NA] failed to update serviceName: DEFAULT_GROUP@@service-edu
+com.alibaba.nacos.api.exception.NacosException: failed to req API:/nacos/v1/ns/instance/list after all servers([http://120.25.72.212:8848]) tried: java.net.ConnectException: Connection refused: connect
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.java:552)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.java:491)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.java:486)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.queryList(NamingProxy.java:400)
+	at com.alibaba.nacos.client.naming.core.HostReactor.updateService(HostReactor.java:339)
+	at com.alibaba.nacos.client.naming.core.HostReactor$UpdateTask.run(HostReactor.java:420)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2021-09-25 22:50:18.117 [restartedMain] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2021-09-25 22:50:18.117 [restartedMain] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2021-09-25 22:57:16.224 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[nacos-config-client] & group[DEFAULT_GROUP]
+2021-09-25 22:57:16.254 [restartedMain] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[nacos-config-client.yml] & group[DEFAULT_GROUP]
+2021-09-25 22:57:17.245 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2021-09-25 22:57:17.250 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2021-09-25 22:57:17.619 [restartedMain] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-09-25 22:57:20.200 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2021-09-25 22:57:22.559 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-09-25 22:57:22.563 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.

@@ -1,0 +1,48 @@
+server:
+  port: 8160
+spring:
+  application:
+    name: service-ucenter
+  cloud:
+    nacos:
+      config:
+        server-addr: http://120.25.72.212:8848
+        prefix: nacos-config-client
+        file-extension: yml
+  profiles:
+    active: dev
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #日志，SQL语句输出到控制台
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.wuzhangze.ucenter.entity #配置别名
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      logic-delete-field: isDeleted  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  mapper-locations: classpath*:com/wuzhangze/ucenter/mapper/**/*.xml
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  sentinel:
+    enabled: true
+
+ribbon:
+  ReadTimeout: 50000
+  ConnectTimeout: 50000
+
+wx:
+  open:
+    # 微信开放平台 appid
+    appId: wxed9954c01bb89b47
+    # 微信开放平台 appsecret
+    appSecret: a7482517235173ddb4083788de60b90e
+    # 微信开放平台 重定向url（guli.shop需要在微信开放平台配置）
+    redirectUri: http://localhost:8160/api/ucenter/wx/callback

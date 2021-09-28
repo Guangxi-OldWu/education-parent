@@ -4,25 +4,21 @@ package com.wuzhangze.eduservice.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wuzhangze.commonutil.R;
 import com.wuzhangze.commonutil.ResultCode;
 import com.wuzhangze.eduservice.entity.EduTeacher;
 import com.wuzhangze.eduservice.entity.vo.TeacherQuery;
-import com.wuzhangze.eduservice.entity.vo.User;
 import com.wuzhangze.eduservice.service.EduTeacherService;
-import com.wuzhangze.servicebase.exception.TeacherNotFindException;
+import com.wuzhangze.servicebase.api.ApiManager;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,9 +30,8 @@ import java.util.Map;
  * @since 2021-08-18
  */
 @Api("讲师管理")
-@CrossOrigin
 @RestController
-@RequestMapping("/eduservice/edu-teacher")
+@RequestMapping(ApiManager.TEACHER)
 public class EduTeacherController {
 
     @Resource
@@ -48,6 +43,7 @@ public class EduTeacherController {
         return R.ok().list(teacherService.list());
     }
 
+    @CacheEvict(value = {"hotTeacher"})
     @ApiOperation(value = "根据id删除讲师")
     @DeleteMapping("/remove/{id}")
     public R removeTeacher(
@@ -63,28 +59,30 @@ public class EduTeacherController {
                              @PathVariable("size") @ApiParam(name = "size",value = "每一页数据量") Long size){
         Page<EduTeacher> teacherPage = teacherService.page(new Page<>(current,size));
         Map map = new HashMap();
-        map.put(ResultCode.ITEMS,teacherPage.getRecords());
-        map.put(ResultCode.TOTAL,teacherPage.getTotal());
+        map.put(ResultCode.ITEMS.resultName,teacherPage.getRecords());
+        map.put(ResultCode.TOTAL.resultName,teacherPage.getTotal());
         return R.ok().data(map);
     }
 
     @ApiOperation(value = "多条件分页查询")
-    @GetMapping("/pageTeacherCondition/{current}/{size}")
+    @PostMapping("/pageTeacherCondition/{current}/{size}")
     public R pageTeacherCondition(@PathVariable("current") @ApiParam(name = "current",value = "当前页") Long current,
                                   @PathVariable("size") @ApiParam(name = "size",value = "每一页数据量") Long size,
                                   @RequestBody @ApiParam(name = "teacherQuery",value = "查询的条件") TeacherQuery teacherQuery){
         QueryWrapper<EduTeacher> queryWrapper = new QueryWrapper<>();
-        if(!StringUtils.isEmpty(teacherQuery.getName())){
-            queryWrapper.like("name",teacherQuery.getName());
-        }
-        if(!StringUtils.isEmpty(teacherQuery.getLevel())){
-            queryWrapper.eq("level",teacherQuery.getLevel());
-        }
-        if(!StringUtils.isEmpty(teacherQuery.getBegin())){
-            queryWrapper.ge("gmt_create",teacherQuery.getBegin());
-        }
-        if(!StringUtils.isEmpty(teacherQuery.getName())){
-            queryWrapper.le("gmt_create",teacherQuery.getEnd());
+        if(teacherQuery != null){
+            if(!StringUtils.isEmpty(teacherQuery.getName())){
+                queryWrapper.like("name",teacherQuery.getName());
+            }
+            if(!StringUtils.isEmpty(teacherQuery.getLevel())){
+                queryWrapper.eq("level",teacherQuery.getLevel());
+            }
+            if(!StringUtils.isEmpty(teacherQuery.getBegin())){
+                queryWrapper.ge("gmt_create",teacherQuery.getBegin());
+            }
+            if(!StringUtils.isEmpty(teacherQuery.getEnd())){
+                queryWrapper.le("gmt_create",teacherQuery.getEnd());
+            }
         }
         Page<EduTeacher> teacherPage = teacherService.page(new Page<>(current, size), queryWrapper);
         return R.ok().list(teacherPage.getRecords()).data(ResultCode.TOTAL,teacherPage.getTotal());
@@ -103,6 +101,7 @@ public class EduTeacherController {
         return R.ok().obj(teacherService.getById(id));
     }
 
+    @CacheEvict(value = {"hotTeacher"})
     @ApiOperation("修改讲师信息")
     @PutMapping("/updateTeacher/{id}")
     public R updateTeacher(
@@ -114,12 +113,5 @@ public class EduTeacherController {
         return update ? R.ok() : R.err();
     }
 
-
-    @GetMapping("/test")
-    public R test(@RequestBody String map){
-        ObjectMapper mapper = new ObjectMapper();
-        System.out.println(map);
-        return R.ok().data("map",map);
-    }
 }
 

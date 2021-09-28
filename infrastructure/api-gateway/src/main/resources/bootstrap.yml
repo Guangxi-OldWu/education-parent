@@ -1,0 +1,74 @@
+server:
+  port: 8222
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://120.25.72.212:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true #是否与服务发现组件进行结合，通过 serviceId 转发到具体的服务实例。默认为false，设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。gatewayapplication有feign自动做负载均衡;
+      routes:
+        - id: service-edu
+          uri: lb://service-edu
+          predicates:
+            - Path=/api/v1/eduservice/**
+
+        - id: service-cms
+          uri: lb://service-cms
+          predicates:
+            - Path=/api/v1/cms/**
+
+        - id: service-order
+          uri: lb://service-order
+          predicates:
+            - Path=/api/v1/eduorder/**
+
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/api/v1/eduoss/**
+
+        - id: service-sms
+          uri: lb://service-sms
+          predicates:
+            - Path=/api/v1/edusms/**
+
+        - id: service-statistics
+          uri: lb://service-statistics
+          predicates:
+            - Path=/api/v1/statistics/**
+
+        - id: service-ucenter
+          uri: lb://service-ucenter
+          predicates:
+            - Path=/api/v1/ucenter/**
+        - id: service-ucenter
+          uri: lb://service-ucenter
+          predicates:
+            - Path=/api/ucenter/**
+
+        - id: service-vod
+          uri: lb://service-vod
+          predicates:
+            - Path=/api/v1/eduvod/**
+
+        - id: service-acl
+          uri: lb://service-acl
+          predicates:
+            - Path=/api/v1/acl/**
+
+
+#    sentinel:
+#      transport:
+#        dashboard: http://120.25.72.212:8080
+#        port: 8719
+#  redis:
+#    host: 120.25.72.212
+#    port: 6379
+#    timeout: 5000
+#    database: 0
+

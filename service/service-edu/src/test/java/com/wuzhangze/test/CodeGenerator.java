@@ -1,20 +1,34 @@
 package com.wuzhangze.test;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.wuzhangze.eduservice.EduApplication;
+import com.wuzhangze.eduservice.entity.EduSubject;
+import com.wuzhangze.eduservice.service.EduSubjectService;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * @author
  * @since 2018/12/13
  */
+@SpringBootTest(classes = {EduApplication.class})
 public class CodeGenerator {
 
     @Test
@@ -56,11 +70,18 @@ public class CodeGenerator {
         pc.setMapper("mapper");
         mpg.setPackageInfo(pc);
 
+        // 需要自动填充得字段名 和填充规则
+        List<TableFill> tableFillList = new ArrayList<>();
+        tableFillList.add(new TableFill("gmt_create", FieldFill.INSERT));
+        tableFillList.add(new TableFill("gmt_modified", FieldFill.INSERT_UPDATE));
+
         // 5、策略配置，这里生成mapper
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("edu_teacher"); //表名，多张逗号分割
+        strategy.setInclude("edu_comment"); //表名，多张逗号分割
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
+
+        strategy.setTableFillList(tableFillList);
 
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
         strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
@@ -73,4 +94,28 @@ public class CodeGenerator {
         // 6、执行
         mpg.execute();
     }
+
+    @Autowired
+    EduSubjectService subjectService;
+
+    @Test
+    public void test() {
+        List<EduSubject> parents = subjectService.list(new QueryWrapper<EduSubject>().eq("parent_id", 0));
+        List<EduSubject> list = subjectService.list(new QueryWrapper<EduSubject>().notIn("parent_id",0));
+        System.out.println("xx");
+    }
+    public void digui(List<EduSubject> list, List<EduSubject> parents){
+        for (EduSubject parent : parents) {
+            // 记录子科目
+            List<EduSubject> childs = new ArrayList<>();
+            for (EduSubject eduSubject : list) {
+                if(parent.getId().equals(eduSubject.getParentId())) {
+                    childs.add(eduSubject);
+                }
+            }
+            parent.setChilds(childs);
+            digui(list,parent.getChilds());
+        }
+    }
+
 }

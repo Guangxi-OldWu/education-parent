@@ -1,0 +1,31 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: service-vod
+  cloud:
+    nacos:
+      config:
+        server-addr: http://120.25.72.212:8848
+        prefix: nacos-config-client
+        file-extension: yml
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+aliyun:
+  vod:
+    file:
+      keyId: LTAI5tJisZsULx9HgM8BoSBx
+      keySecret: sY7FlYXkufdpGFruYyGYRijP8BdsyL
+
+management:
+  health:
+    redis:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'

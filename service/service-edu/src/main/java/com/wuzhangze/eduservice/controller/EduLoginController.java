@@ -1,6 +1,7 @@
 package com.wuzhangze.eduservice.controller;
 
 import com.wuzhangze.commonutil.R;
+import com.wuzhangze.servicebase.api.ApiManager;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +14,10 @@ import java.util.UUID;
  * @date 2021/8/20 16:21
  */
 @RestController
-@RequestMapping("/eduservice/user")
-@CrossOrigin
+@RequestMapping(ApiManager.USER)
 public class EduLoginController {
+
+//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
 
     @ApiOperation(value = "后台登录")
     @PostMapping("/login")

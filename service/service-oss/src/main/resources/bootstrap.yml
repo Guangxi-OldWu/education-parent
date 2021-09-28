@@ -1,0 +1,30 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: service-oss
+  cloud:
+    nacos:
+      config:
+        server-addr: http://120.25.72.212:8848
+        prefix: nacos-config-client
+        file-extension: yml
+  profiles:
+    active: dev
+
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-shenzhen.aliyuncs.com
+      keyid: LTAI5tJisZsULx9HgM8BoSBx
+      keysecret: sY7FlYXkufdpGFruYyGYRijP8BdsyL
+      bucketname: edu-shenzhen # buckey可以在控制台创建也可以代码创建
+
+management:
+  health:
+    redis:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'

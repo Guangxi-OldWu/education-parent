@@ -1,8 +1,11 @@
 package com.wuzhangze.commonutil;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +15,9 @@ import java.util.Map;
  * @date 2021/8/18 17:54
  */
 @Data
-public class R<T> {
+@AllArgsConstructor
+@NoArgsConstructor
+public class R<T> implements Serializable {
     @ApiModelProperty("返回是否成功")
     private Boolean success;
     @ApiModelProperty("返回状态码")
@@ -22,7 +27,6 @@ public class R<T> {
     @ApiModelProperty("返回数据")
     private Map<String,Object> data = new HashMap<>();
 
-    private R(){}
 
     public static R ok(){
         R r = new R();
@@ -72,6 +76,11 @@ public class R<T> {
 
     public R code(ResultCode resultCode){
         this.code = resultCode.code;
+        return this;
+    }
+
+    public R code(Integer code){
+        this.code = code;
         return this;
     }
 
